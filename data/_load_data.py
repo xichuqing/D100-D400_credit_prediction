@@ -1,5 +1,8 @@
 import numpy as np
 import pandas as pd
+import os
+import sys
+from pathlib import Path
 
 def load_data():
     """Load data from Kaggle
@@ -11,22 +14,24 @@ def load_data():
 
     output: new csv file for corprorate rating data with a new id column
     """
-    #load data
-    df = pd.read_csv("corporate_rating.csv")
-    #create an id column
-    df["ID"] = range(1, len(df)+1)
-    rating_dict = {'AAA':'Lowest Risk', 
-               'AA':'Low Risk',
-               'A':'Low Risk',
-               'BBB':'Medium Risk', 
-               'BB':'High Risk',
-               'B':'High Risk',
-               'CCC':'Highest Risk', 
-               'CC':'Highest Risk',
-               'C':'Highest Risk',
-               'D':'In Default'}
+    # load data
+    file_path = os.path.join(os.path.dirname(__file__), "corporate_rating.csv")
+    df = pd.read_csv(file_path)
+    #df = pd.read_csv("corporate_rating.csv")
+    # create an id column
+    df["ID"] = range(1, len(df) + 1)
+    rating_dict = {
+        "AAA": "Lowest Risk",
+        "AA": "Low Risk",
+        "A": "Low Risk",
+        "BBB": "Medium Risk",
+        "BB": "High Risk",
+        "B": "High Risk",
+        "CCC": "Highest Risk",
+        "CC": "Highest Risk",
+        "C": "Highest Risk",
+        "D": "In Default",
+    }
 
     df.Rating = df.Rating.map(rating_dict)
     return df
-
-
