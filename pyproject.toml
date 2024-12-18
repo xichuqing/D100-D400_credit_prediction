@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "credit_rating"
+version = "0.1.0"
+description = "D100&D400 project on credit predicting, University of Cambridge"
+readme = "README.md"
+authors = [
+    { name="Chuqing (Celia) Xi", email="xicelia962@gmail.com" }
+]
+requires-python = ">=3.8"
+keywords = ["credit rating", "machine learning", "prediction"]
+license = { text="MIT" }
+dependencies = [
+    "pandas",
+    "numpy",
+    "scipy",
+    "fastparquet",
+    "matplotlib",
+    "seaborn",
+    "plotly",
+    "lightgbm",
+    "scikit-learn",
+    "statsmodels",
+    "skglm",
+    "dalex",
+    "pytest>=6",
+    "shap",
+    "jupyter",
+    "pre-commit"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest-cov",
+    "black",
+    "flake8",
+    "isort",
+    "pre-commit"
+]
+
+[tool.setuptools.packages.find]
+include = ["credit_rating"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--import-mode=importlib"
+testpaths = ["tests"]
+
+[project.scripts]
+credit_rating_main = "credit_rating.main:main"
