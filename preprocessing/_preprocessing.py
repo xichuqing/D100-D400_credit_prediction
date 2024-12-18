@@ -10,9 +10,11 @@ sys.path.append(str(root))
 def encoder(df):
     """
     to encode all needed categorical variables
+    higher risk with higher number
     Parameter
     -----------
     df: pd.DataFrame
+    output: data frame with encoded categorical variables
     """
     le_sector = preprocessing.LabelEncoder()
     le_sector.fit(df.Sector)
