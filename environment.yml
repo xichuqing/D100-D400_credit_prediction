@@ -1,0 +1,30 @@
+name: credit_rating
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  # defaults
+  - python>=3.8
+  - pip
+  - pre-commit
+  - pytest>=6  # Adds --import-mode option
+  - pytest-cov
+  - setuptools-scm
+  # data
+  - pandas
+  - numpy
+  - scipy
+  - fastparquet
+  # interactive
+  - jupyter
+  - ipykernel
+  # plots
+  - matplotlib
+  - seaborn
+  - plotly
+  - shap
+  # machine learning
+  - lightgbm
+  - scikit-learn
+  - statsmodels
+  - skglm
