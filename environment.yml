@@ -28,3 +28,4 @@ dependencies:
   - scikit-learn
   - statsmodels
   - skglm
+  - dalex
