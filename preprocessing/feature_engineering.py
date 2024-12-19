@@ -43,5 +43,19 @@ class LogCap(BaseEstimator, TransformerMixin):
         check_is_fitted(self)
         X_clipped = np.clip(X, self.lower_bound_, self.upper_bound_)
         # Apply log transformation (add a small constant to avoid log(0))
-        X_transformed = np.log1p(X_clipped)
+        X_transformed = np.log10(X_clipped+0.01)
         return X_transformed
+
+    def get_feature_names_out(self, input_features=None):
+        """
+        Returns feature names after transformation.
+
+        Parameters:
+        - input_features: Original feature names.
+
+        Returns:
+        - Feature names list.
+        """
+        if input_features is None:
+            input_features = [f"feature_{i}" for i in range(len(self.lower_bound_))]
+        return np.array(input_features)
