@@ -21,7 +21,9 @@ def train_model(pipeline, params, X_train, y_train,model_name):
     grid_search = GridSearchCV(pipeline, params, scoring="accuracy", cv=5, verbose=2)
     grid_search.fit(X_train, y_train)
     best_model = grid_search.best_estimator_
+    best_params = grid_search.best_params_
     print(f"Plotting Learning Curve for {model_name}...")
     plot_learning_curve(best_model, X_train, y_train, f"Learning Curve - {model_name}",cv=5, n_jobs=-1, train_sizes=np.linspace(0.1, 1.0, 10))
 
-    return best_model
+    return best_model, best_params
+
