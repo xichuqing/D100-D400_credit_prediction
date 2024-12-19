@@ -31,11 +31,13 @@ pre-commit run --all-files
 ```
 
 ## How to run the Model
-1. Run the `main.py` in the model folder, it is the main analysis and the predicting for the data.
+1. After install the environment, run the `main.py` in the model folder, it is the main analysis and the predicting for the data. You can clone this repo or git init the folder first.
 ```bash
+cd /path/to/your/project
+git init
 python model/main.py
 ```
-2. Clone this repository and you can directly run the `ead_cleaning.ipynb` for exploring the data
+2. After clone this repository and you can directly run the `ead_cleaning.ipynb` for exploring the data
 2. `_cleaning.py`,`_load_data.py`,`plotting.py`, contains functions for loading, cleaning and plotting the data
 3. `_evaluation.py`,`_learning_curve.py`,`splitting.py`,`_model_training.py`,`feature_importance_PDP.py` and `_preprocessing.py` contains the functions needed in the `main.py`
 4. `feature_engineering.py` contains a simple scikit-learn transformer named LogCap. You can run the unit test by running:
