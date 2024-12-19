@@ -1,10 +1,19 @@
 # Credit Rating Prediction using GLM and LGBM
 
-Predicting corporate credit ratings is critical for assessing a company's financial stability and risk. This project uses machine learning models, specifically the Generalized Linear Model (GLM) and LightGBM (LGBM), to automate credit rating predictions based on financial indicators.
+Predicting corporate credit ratings is critical for assessing a company's financial stability and risk. This project uses machine learning models, specifically the Generalized Linear Model (GLM) and LightGBM (LGBM), to automate credit rating predictions based on financial indicators. Comparison of the models will be provided.
 
 ## Data source
 
 The Dataset is from Source:https://www.kaggle.com/datasets/agewerc/corporate-credit-rating/data
+A list of 2029 credit ratings issued by major agencies such as Standard and Poors to big US firms (traded on NYSE or Nasdaq) from 2010 to 2016.
+
+There are 30 features for every company of which 25 are financial indicators. They can be divided in:
+1. Liquidity Measurement Ratios: currentRatio, quickRatio, cashRatio, daysOfSalesOutstanding
+2. Profitability Indicator Ratios: grossProfitMargin, operatingProfitMargin, pretaxProfitMargin, netProfitMargin, effectiveTaxRate, returnOnAssets, returnOnEquity, returnOnCapitalEmployed
+3. Debt Ratios: debtRatio, debtEquityRatio
+4. Operating Performance Ratios: assetTurnover
+5. Cash Flow Indicator Ratios: operatingCashFlowPerShare, freeCashFlowPerShare, cashPerShare, operatingCashFlowSalesRatio, freeCashFlowOperatingCashFlowRatio
+
 
 ## Installation
 
