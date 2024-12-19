@@ -33,10 +33,24 @@ df = clean(load_data())
 
 # %%
 # --------------------------------preprocessing the data-----------------------------#
-# Get the absolute path of the Parquet file
-absolute_path = os.path.abspath('../data/cleaned_data.parquet')
-# Read the Parquet file
-df = pd.read_parquet(absolute_path, engine='fastparquet')
+
+# Get the directory of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+# Traverse to the root of the repository
+repo_root = os.path.abspath(os.path.join(script_dir, '..'))  # Move up one level
+
+# Construct the full path to the data file
+file_path = os.path.join(repo_root, 'data', 'cleaned_data.parquet')
+# Load the Parquet file
+df = pd.read_parquet(file_path, engine='fastparquet')
+# Print to verify the file path
+print("File path:", file_path)
+print("Data loaded successfully!")
+
+
+# absolute_path = os.path.abspath('../data/cleaned_data.parquet')
+# # Read the Parquet file
+# df = pd.read_parquet(absolute_path, engine='fastparquet')
 
 #split the data into testing and training
 df = create_sample_split(df, 'ID', training_frac=0.8)
